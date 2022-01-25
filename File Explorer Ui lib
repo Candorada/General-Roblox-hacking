@@ -1,0 +1,138 @@
+local library = {}
+
+function library:CreateWindow(text)
+    local ScreenGui = Instance.new("ScreenGui")
+    local main = Instance.new("Frame")
+    local ImageLabel = Instance.new("ImageLabel")
+    local TextLabel = Instance.new("TextLabel")
+    local ImageLabel_2 = Instance.new("ImageLabel")
+    local TextLabel_2 = Instance.new("TextLabel")
+    local Frame = Instance.new("Frame")
+    local TextLabel_3 = Instance.new("TextLabel")
+    local Cover = Instance.new("Frame")
+    local UIGridLayout = Instance.new("UIGridLayout")
+    
+    
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+main.BorderColor3 = Color3.fromRGB(27, 42, 53)
+main.BorderSizePixel = 0
+main.Position = UDim2.new(0.354567736, 0, 0.248510584, 0)
+main.Size = UDim2.new(0, 740, 0, 389)
+main.Active = true
+main.Draggable = true
+
+ImageLabel.Parent = main
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.Position = UDim2.new(0.00851706881, 0, 0.0177682899, 0)
+ImageLabel.Size = UDim2.new(0, 17, 0, 17)
+ImageLabel.Image = "rbxassetid://8639137814"
+
+TextLabel.Parent = main
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BorderColor3 = Color3.fromRGB(90, 90, 90)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0314900167, 0, 0.0177682918, 0)
+TextLabel.Size = UDim2.new(0.106756754, 0, 0.0437017977, 0)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "｜File Explorer"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 14.000
+
+ImageLabel_2.Parent = main
+ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_2.BorderSizePixel = 0
+ImageLabel_2.Position = UDim2.new(0, 0, 0.0591259636, 0)
+ImageLabel_2.Size = UDim2.new(0, 740, 0, 23)
+ImageLabel_2.Image = "rbxassetid://8639242162"
+
+TextLabel_2.Parent = main
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.117567569, 0, 0.0694087371, 0)
+TextLabel_2.Size = UDim2.new(0, 102, 0, 15)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = ("C:\\Desktop\\"..text)
+TextLabel_2.TextColor3 = Color3.fromRGB(99, 99, 99)
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame.Parent = main
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0, 0, 0.118251927, 0)
+Frame.Size = UDim2.new(0, 740, 0, 18)
+
+TextLabel_3.Parent = Frame
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0, 0, -0.222222224, 0)
+TextLabel_3.Size = UDim2.new(0, 202, 0, 22)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "Name                                             ｜"
+TextLabel_3.TextColor3 = Color3.fromRGB(126, 126, 126)
+TextLabel_3.TextSize = 14.000
+
+Cover.Name = "Cover"
+Cover.Parent = main
+Cover.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Cover.BorderSizePixel = 0
+Cover.Position = UDim2.new(0, 0, 0.164524421, 0)
+Cover.Size = UDim2.new(0, 740, 0, 18)
+
+
+UIGridLayout.Parent = Cover
+UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout.CellSize = UDim2.new(0, 740, 0, 20)
+
+local library2 = {}
+function library2:CreateButton(text, image, callback)
+    local buttonclickpart = Instance.new("TextButton")
+    local FileName = Instance.new("TextLabel")
+    local Fileimage = Instance.new("ImageLabel")
+    
+    
+    
+    buttonclickpart.Name = "buttonclickpart"
+    buttonclickpart.Parent = Cover
+    buttonclickpart.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    buttonclickpart.BorderSizePixel = 0
+    buttonclickpart.Size = UDim2.new(0, 740, 0, 20)
+    buttonclickpart.Font = Enum.Font.SourceSans
+    buttonclickpart.Text = " "
+    buttonclickpart.TextColor3 = Color3.fromRGB(0, 0, 0)
+    buttonclickpart.TextSize = 14.000
+    buttonclickpart.MouseButton1Down:Connect(function()
+    pcall(callback)
+    end)
+    
+    FileName.Name = "File Name"
+    FileName.Parent = buttonclickpart
+    FileName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    FileName.BorderSizePixel = 0
+    FileName.Position = UDim2.new(0.0310810804, 0, 0, 0)
+    FileName.Size = UDim2.new(0, 0, 0, 18)
+    FileName.Font = Enum.Font.SourceSans
+    FileName.Text = text
+    FileName.TextColor3 = Color3.fromRGB(0, 0, 0)
+    FileName.TextSize = 14.000
+    FileName.TextXAlignment = Enum.TextXAlignment.Left
+    
+    Fileimage.Name = "File image"
+    Fileimage.Parent = buttonclickpart
+    Fileimage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Fileimage.BackgroundTransparency = 1.000
+    Fileimage.BorderSizePixel = 0
+    Fileimage.Size = UDim2.new(0, 16, 0, 20)
+    Fileimage.Image = ("rbxassetid://"..image)
+
+end
+return library2
+end
+return library
